@@ -1,0 +1,33 @@
+﻿<Window x:Class="Jkbx.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Jkbx"
+        mc:Ignorable="d"
+        Title="JukeboxWPF" Height="500" Width="500">
+    <!--<NavigationWindow.DataContext>
+        <local:MainViewModel />
+    </NavigationWindow.DataContext>-->
+    <Grid>
+        <Button Content="Show" Command="{Binding ShowSongsBy}" HorizontalAlignment="Left" Margin="47,306,0,0" VerticalAlignment="Top" Width="75"/>
+        <ListBox x:Name="authors"
+                 SelectedItem ="{Binding SelectedItem1}"
+                 SelectedIndex="{Binding SelectedIndex1 }"
+                 ItemsSource="{Binding AuthorsListVM}" HorizontalAlignment="Left" Height="100" Margin="47,45,0,0" VerticalAlignment="Top" Width="100" />
+        <ListBox x:Name="albums" 
+                 SelectedItem ="{Binding SelectedItem2}"
+                 SelectedIndex="{Binding SelectedIndex2 }"
+                 ItemsSource="{Binding AlbumsListVM}" HorizontalAlignment="Left" Height="100" Margin="174,45,0,0" VerticalAlignment="Top" Width="100" />
+        <ListBox x:Name="genres" 
+                 SelectedItem ="{Binding SelectedItem3}"
+                 SelectedIndex="{Binding SelectedIndex3}"
+                 ItemsSource="{Binding GenresListVM}" HorizontalAlignment="Left" Height="100" Margin="316,45,0,0" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="currentam" 
+                 Text="{Binding CurrentAmVM}" HorizontalAlignment="Left" Height="23" Margin="27,237,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <ListBox x:Name="sorted"
+                 ItemsSource="{Binding SortedListVM}" HorizontalAlignment="Left" Height="100" Margin="233,252,0,0" VerticalAlignment="Top" Width="100" />
+
+    </Grid>
+
+</Window>
