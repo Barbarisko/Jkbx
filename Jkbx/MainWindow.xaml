@@ -9,24 +9,39 @@
     <!--<NavigationWindow.DataContext>
         <local:MainViewModel />
     </NavigationWindow.DataContext>-->
-    <Grid>
-        <Button Content="Show" Command="{Binding ShowSongsBy}" HorizontalAlignment="Left" Margin="47,306,0,0" VerticalAlignment="Top" Width="75"/>
-        <ListBox x:Name="authors"
-                 SelectedItem ="{Binding SelectedItem1}"
-                 SelectedIndex="{Binding SelectedIndex1 }"
-                 ItemsSource="{Binding AuthorsListVM}" HorizontalAlignment="Left" Height="100" Margin="47,45,0,0" VerticalAlignment="Top" Width="100" />
-        <ListBox x:Name="albums" 
-                 SelectedItem ="{Binding SelectedItem2}"
-                 SelectedIndex="{Binding SelectedIndex2 }"
-                 ItemsSource="{Binding AlbumsListVM}" HorizontalAlignment="Left" Height="100" Margin="174,45,0,0" VerticalAlignment="Top" Width="100" />
-        <ListBox x:Name="genres" 
+    <Grid Margin="0,0,2,0">
+
+        <Grid HorizontalAlignment="Left" Height="184" VerticalAlignment="Top" Width="480">
+            <Grid.RowDefinitions>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Content="Show" Command="{Binding ShowSongsBy}" Margin="36,288,43,-128" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Height="24"/>
+            <ListBox x:Name="genres" 
                  SelectedItem ="{Binding SelectedItem3}"
                  SelectedIndex="{Binding SelectedIndex3}"
-                 ItemsSource="{Binding GenresListVM}" HorizontalAlignment="Left" Height="100" Margin="316,45,0,0" VerticalAlignment="Top" Width="100" />
-        <TextBox x:Name="currentam" 
-                 Text="{Binding CurrentAmVM}" HorizontalAlignment="Left" Height="23" Margin="27,237,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+                 ItemsSource="{Binding GenresListVM}" HorizontalAlignment="Left" Height="100" Margin="10,74,0,0" VerticalAlignment="Top" Width="140" Grid.Column="2" />
+            <ListBox x:Name="albums" 
+                 SelectedItem ="{Binding SelectedItem2}"
+                 SelectedIndex="{Binding SelectedIndex2}"
+                 ItemsSource="{Binding AlbumsListVM}" HorizontalAlignment="Left" Height="100" Margin="10,74,0,0" VerticalAlignment="Top" Width="140" Grid.Column="1" />
+            <Label Content="Choose singer" HorizontalAlignment="Center" Margin="36,32,38,0" VerticalAlignment="Top" RenderTransformOrigin="0.368,0.385"/>
+            <Label Content="Choose album" HorizontalAlignment="Center" Margin="36,32,38,0" VerticalAlignment="Top" RenderTransformOrigin="0.368,0.385" Grid.Column="1"/>
+            <Label Content="Choose genre" HorizontalAlignment="Center" Margin="37,32,39,0" VerticalAlignment="Top" RenderTransformOrigin="0.368,0.385" Grid.Column="2"/>
+            <ListBox x:Name="authors"
+                 ItemsSource="{Binding AuthorsListVM}"
+                 SelectedItem ="{Binding SelectedItem1}"
+                 SelectedIndex="{Binding SelectedIndex1}" HorizontalAlignment="Left" Height="100" Margin="10,74,0,0" VerticalAlignment="Top" Width="140" />
+        </Grid>
         <ListBox x:Name="sorted"
-                 ItemsSource="{Binding SortedListVM}" HorizontalAlignment="Left" Height="100" Margin="233,252,0,0" VerticalAlignment="Top" Width="100" />
+                 ItemsSource="{Binding SortedListVM}" HorizontalAlignment="Left" Height="100" Margin="152,346,0,0" VerticalAlignment="Top" Width="176" />
+
+        <TextBox x:Name="currentam" 
+                 Text="{Binding CurrentAmVM, Mode=OneWayToSource}" HorizontalAlignment="Left" Height="22" Margin="177,224,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 

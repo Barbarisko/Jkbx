@@ -24,7 +24,7 @@ namespace Data
             {
                 Name = "Song1",
                 Genre = "pop",
-                Singer = "Singer1",
+                Singer = "Dua Lipa",
                 Duration = 22
             };
 
@@ -32,46 +32,46 @@ namespace Data
             {
                 Name = "Song2",
                 Genre = "pop",
-                Singer = "Singer1",
+                Singer = "Dua Lipa",
                 Duration = 32
             };
 
             Song Song3 = new Song()
             {
                 Name = "Song3",
-                Genre = "rock",
-                Singer = "Singer2",
+                Genre = "hiphop",
+                Singer = "Lana Del Rey",
                 Duration = 55
             };
 
             Song Song4 = new Song()
             {
                 Name = "Song4",
-                Genre = "rock",
-                Singer = "Singer2",
+                Genre = "hiphop",
+                Singer = "Lana Del Rey",
                 Duration = 22
             };
 
             Song Song5 = new Song()
             {
                 Name = "Song5",
-                Genre = "hiphop",
-                Singer = "Singer3",
+                Genre = "rock",
+                Singer = "Queen",
                 Duration = 22
             };
 
             Song Song6 = new Song()
             {
                 Name = "Song6",
-                Genre = "hiphop",
-                Singer = "Singer3",
+                Genre = "rock",
+                Singer = "Queen",
                 Duration = 22
             };
             Song Song7 = new Song()
             {
                 Name = "Song7",
-                Genre = "hiphop",
-                Singer = "Singer3",
+                Genre = "rock",
+                Singer = "Queen",
                 Duration = 22
             };
 
@@ -83,16 +83,16 @@ namespace Data
                 Songs = new List<Song>() { Song1, Song2 }
             };
 
-            Album b = new Album()
+            Album Young = new Album()
             {
-                Name = "b",
+                Name = "Young and beautiful",
                 Price = 32, 
                 Songs = new List<Song>() { Song3, Song4 }
             };
 
-            Album c = new Album()
+            Album Night = new Album()
             {
-                Name = "c",
+                Name = "Night In The Opera",
                 Price = 12,
                 Songs = new List<Song>() { Song5, Song6, Song7 }
             };
@@ -101,7 +101,7 @@ namespace Data
             Machine Jukebox = new Machine()
             {
                
-                albums = new List<Album>() { a, b, c }
+                albums = new List<Album>() { a, Young, Night }
             };
 
             context.Machines.Add(Jukebox);

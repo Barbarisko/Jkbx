@@ -27,13 +27,11 @@ namespace Jkbx
     public partial class App : Application
     {
         public static IServiceProvider ServiceProvider { get; private set; }
-        public IConfiguration config;
-        public App(IConfiguration config)
+        public App()
         {
             var service = new ServiceCollection();
             ConfigureServices(service);
             ServiceProvider = service.BuildServiceProvider();
-            this.config = config;
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -54,7 +52,7 @@ namespace Jkbx
         {
 
             services.AddDbContext<JukeBoxDBContext>(opt =>
-                opt.UseSqlServer(config.GetConnectionString("JukeboxDatabase")));
+                opt.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=JukeboxDB;Trusted_Connection=True;"));
 
             services.AddTransient(typeof(MainWindow));
 

@@ -20,7 +20,6 @@ namespace Data
         public SerializeJson(Type type)
         {
             serializeJson = new DataContractJsonSerializer(type);
-
         }
 
         public void Serialize(Object obj, string path)
@@ -33,12 +32,10 @@ namespace Data
 
         public Object Deserialize(string path)
         {
-
             using (FileStream stream = new FileStream(path, FileMode.OpenOrCreate))
             {
                 return serializeJson.ReadObject(stream);
             }
         }
     }
-
 }

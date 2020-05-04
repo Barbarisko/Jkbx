@@ -9,5 +9,7 @@ namespace Data.Entities
         public List<Album> albums;
 
         public string pathToOr;
+
+        public int MachineId { get; set; }
     }
 }

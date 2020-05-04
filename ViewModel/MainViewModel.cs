@@ -4,6 +4,7 @@ using Data;
 using Data.Entities;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,10 +18,10 @@ namespace ViewModel
     {
         public IMachineService machineService { get; }
 
-        MachineModel jukebox = new MachineModel() ;
+        MachineModel jukebox = new MachineModel();
         AlbumModel album;
         List<SongModel> sorted;
-        
+
         private List<string> _albumsList;
         public List<string> AlbumsListVM
         {
@@ -54,8 +55,8 @@ namespace ViewModel
             get { return _genresList; }
         }
 
-        private List<string> _sortedList;
-        public List<string> SortedListVM
+        private ObservableCollection<string> _sortedList;
+        public ObservableCollection<string> SortedListVM
         {
             set
             {
@@ -65,12 +66,13 @@ namespace ViewModel
             get { return _sortedList; }
         }
 
+
         private string selectedItem1;
         public string SelectedItem1
         {
             get { return selectedItem1; }
             set { selectedItem1 = value;
-                  onPropertyChanged();}
+                onPropertyChanged(); }
         }
         private string selectedItem2;
         public string SelectedItem2
@@ -139,7 +141,7 @@ namespace ViewModel
             machineService = ms;
 
             album = new AlbumModel();
-            machineService.JukeboxFill(album, jukebox);
+            jukebox = machineService.JukeboxFill();
 
             FillListboxes();
 
@@ -175,11 +177,17 @@ namespace ViewModel
 
         static bool IsNum(string s)
         {
-            foreach (char c in s)
+            if (s == null) return false;
+
+            else
             {
-                if (!Char.IsDigit(c)) return false;
+                foreach (char c  in s )
+                {
+                    if (!Char.IsDigit(c)) return false;
+                }
+                return true;
             }
-            return true;
+            
         }
 
         public ICommand ShowSongsBy
@@ -188,16 +196,13 @@ namespace ViewModel
             {
                 return new DelegateCommand((obj) =>
                 {
-                    SortedListVM = new List<string>();
+                    SortedListVM = new ObservableCollection<string>();
+                    SortedListVM.Clear();
+
                     if (IsNum(CurrentAmVM) == true)
                     {
-                        if (Convert.ToInt32(CurrentAmVM) <= 0)
-                        {
-                            MessageBox.Show("input money");
-                            return;
-                        }
-                        sorted = machineService.findSortedListOfSongs(jukebox, SelectedItem2, SelectedItem1,  selectedItem3, Convert.ToInt32(CurrentAmVM));
-                        SortedListVM.Clear();
+
+                        sorted = machineService.findSortedListOfSongs(jukebox, SelectedItem2, SelectedItem1, SelectedItem3, Convert.ToInt32(CurrentAmVM));
 
                         foreach (SongModel i in sorted)
                         {
@@ -207,7 +212,8 @@ namespace ViewModel
                         SelectedIndx1 = -1;
                         SelectedIndx2 = -1;
                         SelectedIndx3 = -1;
-                    }                                  
+                    }
+                    else MessageBox.Show("it's not money");
                 });
             }
         }

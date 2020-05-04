@@ -5,7 +5,7 @@ namespace Business.Interfaces
 {
     public interface IMachineService
     {
-        void JukeboxFill(AlbumModel album, MachineModel jukebox);
+        MachineModel JukeboxFill();
         //List<string> NamesOfMaterials(MachineModel jukeebox);
         List<AlbumModel> GetAlbums(MachineModel jukebox);
 

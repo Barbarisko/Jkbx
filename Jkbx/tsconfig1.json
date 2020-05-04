@@ -13,6 +13,6 @@
 
   "AllowedHosts": "*",
   "ConnectionStrings": {
-    "JukeboxDatabase": "Server=localhost;Database=JukeboxDB;Trusted_Connection=True;"
+    "JukeboxDatabase": "Server=(localdb)\\mssqllocaldb;Database=JukeboxDB;Trusted_Connection=True;"
   }
 }
