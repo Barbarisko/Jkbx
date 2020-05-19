@@ -2,6 +2,7 @@
 using Business.Models;
 using Data;
 using Data.Entities;
+using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -146,7 +147,6 @@ namespace ViewModel
             FillListboxes();
 
             //ms.saveToFile(InfoInput.json);
-
         }
 
         public void FillListboxes()
@@ -164,14 +164,12 @@ namespace ViewModel
                     if (!AuthorsListVM.Contains(s.Singer))
                     {
                         AuthorsListVM.Add(s.Singer);
-
                     }
                     if (!GenresListVM.Contains(s.Genre))
                     {
                         GenresListVM.Add(s.Genre);
                     }
                 }
-
             }
         }
 
@@ -186,8 +184,7 @@ namespace ViewModel
                     if (!Char.IsDigit(c)) return false;
                 }
                 return true;
-            }
-            
+            }            
         }
 
         public ICommand ShowSongsBy
@@ -201,19 +198,25 @@ namespace ViewModel
 
                     if (IsNum(CurrentAmVM) == true)
                     {
-
-                        sorted = machineService.findSortedListOfSongs(jukebox, SelectedItem2, SelectedItem1, SelectedItem3, Convert.ToInt32(CurrentAmVM));
-
-                        foreach (SongModel i in sorted)
+                        if (Convert.ToInt32(CurrentAmVM) <= 0)
                         {
-                            SortedListVM.Add(i.Name);
+                            MessageBox.Show("input money");                            
                         }
-
-                        SelectedIndx1 = -1;
-                        SelectedIndx2 = -1;
-                        SelectedIndx3 = -1;
-                    }
+                        else
+                        {
+                            sorted = machineService.findSortedListOfSongs(jukebox, SelectedItem2, SelectedItem1, SelectedItem3, Convert.ToInt32(CurrentAmVM));
+                            
+                            foreach (SongModel i in sorted)
+                            {
+                                SortedListVM.Add(i.Name);
+                            }   
+                        }                                           
+                    }                    
                     else MessageBox.Show("it's not money");
+                    //kak skidyvat' indexi, ya ne pinimayu
+                    SelectedIndx1 = -1;
+                    SelectedIndx2 = -1;
+                    SelectedIndx3 = -1;
                 });
             }
         }

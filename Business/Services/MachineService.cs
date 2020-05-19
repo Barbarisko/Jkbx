@@ -31,7 +31,6 @@ namespace Business.Services
         {
             if (currentamount <= 0)
             {
-                //MessageBox.Show("input money");
                 return null;
             }
 
@@ -44,13 +43,13 @@ namespace Business.Services
                         foreach (SongModel s in al.Songs) songs.Add(s);
                     }
 
-                    else
-                    {
-                        if (currentamount <= 0)
-                        {
-                            MessageBox.Show("input money");
-                        }
-                    }
+                    //else
+                    //{
+                    //    if (currentamount <= 0)
+                    //    {
+                    //        return null;
+                    //    }
+                    //}
                 }
                 return songs;
 
@@ -83,13 +82,13 @@ namespace Business.Services
                     }
 
                 }
-                else
-                {
-                    if (currentamount <= 0)
-                    {
-                        MessageBox.Show("input money");
-                    }
-                }
+                //else
+                //{
+                //    if (currentamount <= 0)
+                //    {
+                //        return null;
+                //    }
+                //}
 
 
             }

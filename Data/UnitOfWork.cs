@@ -9,12 +9,12 @@ namespace Data
     public class UnitOfWork:IUnitOfWork
     {
         private readonly JukeBoxDBContext _context;
-        public IRepository<Song> SongRepo { get; }
-        public IRepository<Machine> JukeboxRepo { get; }
-        public IRepository<Album> AlbumRepo { get; }
+        public IAlbumRepo AlbumRepo { get; }
+        public IMachineRepo JukeboxRepo { get; }
+        public ISongRepo SongRepo { get; }
 
-        public UnitOfWork(JukeBoxDBContext context, IRepository<Album> albums,
-            IRepository<Machine> jukeboxes, IRepository<Song> songs)
+        public UnitOfWork(JukeBoxDBContext context, ISongRepo songs,
+            IMachineRepo jukeboxes, IAlbumRepo albums)
         {
             _context = context;
             AlbumRepo = albums;

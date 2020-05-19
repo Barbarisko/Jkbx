@@ -56,9 +56,9 @@ namespace Jkbx
 
             services.AddTransient(typeof(MainWindow));
 
-            services.AddScoped<IRepository<Album>, Repository<Album>>();
-            services.AddScoped<IRepository<Machine>, Repository<Machine>>();
-            services.AddScoped<IRepository<Song>, Repository<Song>>();
+            services.AddScoped<IAlbumRepo, AlbumRepository>();
+            services.AddScoped<IMachineRepo, MachineRepository>();
+            services.AddScoped<ISongRepo, SongRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddSingleton(new MapperConfiguration(c => c.AddProfile(new Business.Mapper())).CreateMapper());
             services.AddTransient<IMachineService, MachineService>();

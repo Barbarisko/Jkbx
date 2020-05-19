@@ -6,9 +6,8 @@ namespace Data.Entities
 {
     public class Machine:IDentity
     {
-        public List<Album> albums;
-
-        public string pathToOr;
+        private List<Album> _albums;
+        public List<Album> albums { get { return _albums; } set { _albums = value; } }
 
         public int MachineId { get; set; }
     }

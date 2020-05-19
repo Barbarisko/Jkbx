@@ -7,9 +7,9 @@ namespace Data.Interfaces
 {
     public interface IUnitOfWork
     {
-        IRepository<Album> AlbumRepo { get; }
-        IRepository<Machine> JukeboxRepo { get; }
-        IRepository<Song> SongRepo { get; }
+        IAlbumRepo AlbumRepo { get; }
+        IMachineRepo JukeboxRepo { get; }
+        ISongRepo SongRepo { get; }
         void Save();
     }
 }
