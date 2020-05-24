@@ -41,7 +41,8 @@
                  ItemsSource="{Binding SortedListVM}" HorizontalAlignment="Left" Height="100" Margin="152,346,0,0" VerticalAlignment="Top" Width="176" />
 
         <TextBox x:Name="currentam" 
-                 Text="{Binding CurrentAmVM, Mode=OneWayToSource}" HorizontalAlignment="Left" Height="22" Margin="177,224,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+                 Text="{Binding CurrentAmVM, Mode=OneWayToSource}" HorizontalAlignment="Left" Height="22" Margin="178,237,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <Label Content="Input money:" HorizontalAlignment="Center" Margin="195,206,209,0" VerticalAlignment="Top" RenderTransformOrigin="0.368,0.385"/>
 
     </Grid>
 

@@ -8,5 +8,8 @@ namespace Data.Interfaces
     {
         void Add(TEntity entity);
         IEnumerable<TEntity> GetAll();
+        void Update(TEntity entity);
+        void Delete(int id);
+
     }
 }

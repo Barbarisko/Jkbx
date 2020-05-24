@@ -7,22 +7,22 @@ using System.Text;
 
 namespace Data.Repository
 {
-   public  class AlbumRepository : IAlbumRepo
+   public  class AlbumRepository : Repository<Album>, IAlbumRepo
     {
         private JukeBoxDBContext context;
 
-        public AlbumRepository(JukeBoxDBContext _context)
+        public AlbumRepository(JukeBoxDBContext _context):base(_context)
         {
             context = _context;
         }
-        public void Add(Album entity)
-        {
-            context.Albums.Add(entity);
-        }
+        //public void Add(Album entity)
+        //{
+        //    context.Albums.Add(entity);
+        //}
 
-        public IEnumerable<Album> GetAll()
-        {
-            return context.Albums.ToList();
-        }
+        //public IEnumerable<Album> GetAll()
+        //{
+        //    return context.Albums.ToList();
+        //}
     }
 }

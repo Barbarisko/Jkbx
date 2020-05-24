@@ -7,11 +7,11 @@ using System.Text;
 
 namespace Data.Repository
 {
-    public class SongRepository : ISongRepo
+    public class SongRepository : Repository<Song>, ISongRepo
     {
         private JukeBoxDBContext context;
 
-        public SongRepository (JukeBoxDBContext _context)
+        public SongRepository (JukeBoxDBContext _context):base(_context)
         {
             context = _context;
         }

@@ -197,22 +197,37 @@ namespace ViewModel
                     SortedListVM.Clear();
 
                     if (IsNum(CurrentAmVM) == true)
-                    {
-                        if (Convert.ToInt32(CurrentAmVM) <= 0)
+                    { 
+                        int c = Convert.ToInt32(CurrentAmVM);
+
+                        foreach (AlbumModel a in jukebox.albums)
+                        {
+                            if(SelectedItem2 == a.Name)
+                            {                               
+                                if (c < a.Price && c !=0)
+                                {
+                                    MessageBox.Show("not enough money");
+                                }
+                            }
+                        }
+
+                        if (c <= 0)
                         {
                             MessageBox.Show("input money");                            
                         }
+                       
                         else
                         {
-                            sorted = machineService.findSortedListOfSongs(jukebox, SelectedItem2, SelectedItem1, SelectedItem3, Convert.ToInt32(CurrentAmVM));
-                            
+                            sorted = machineService.findSortedListOfSongs(jukebox, SelectedItem2, SelectedItem1, SelectedItem3, c);
                             foreach (SongModel i in sorted)
                             {
                                 SortedListVM.Add(i.Name);
                             }   
                         }                                           
-                    }                    
+                    }                   
+                    
                     else MessageBox.Show("it's not money");
+
                     //kak skidyvat' indexi, ya ne pinimayu
                     SelectedIndx1 = -1;
                     SelectedIndx2 = -1;

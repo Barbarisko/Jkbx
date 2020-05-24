@@ -7,10 +7,10 @@ using System.Text;
 
 namespace Data.Repository
 {
-    public class MachineRepository : IMachineRepo
+    public class MachineRepository : Repository<Machine>, IMachineRepo 
     {
         private JukeBoxDBContext context;
-         public MachineRepository(JukeBoxDBContext _context)
+         public MachineRepository(JukeBoxDBContext _context):base(_context)
         {
             context = _context;
 
